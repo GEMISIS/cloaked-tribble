@@ -52,15 +52,8 @@ bool ObjectManager::Update()
 
 	return true;
 }
-<<<<<<< HEAD
-bool ObjectManager::addObject(Object object)
-{
-	objectList.push_back(object);
-	return true;
-=======
-
-void ObjectManager::addObject(Object* object)
+bool ObjectManager::addObject(Object* object)
 {
 	this->objectList.push_back(object);
->>>>>>> Fixes and Walls
+	return true;
 }

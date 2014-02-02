@@ -19,12 +19,11 @@ public:
 		return false;
 	}
 	bool Update();
-	void addObject(Object* object);
+	bool addObject(Object* object);
 	std::vector<Object*> getObjectList()
 	{
 		return objectList;
 	}
-	bool addObject(Object object);
 protected:
 	float distance; //for memory management
 	std::vector<Object*> objectList;
