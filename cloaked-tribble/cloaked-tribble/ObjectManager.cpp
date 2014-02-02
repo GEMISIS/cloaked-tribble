@@ -48,3 +48,8 @@ bool ObjectManager::Update()
 
 	return true;
 }
+bool ObjectManager::addObject(Object object)
+{
+	objectList.push_back(object);
+	return true;
+}

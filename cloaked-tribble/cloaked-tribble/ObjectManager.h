@@ -19,6 +19,7 @@ public:
 	{
 		return objectList;
 	}
+	bool addObject(Object object);
 protected:
 	float distance; //for memory management
 	std::vector<Object> objectList;
