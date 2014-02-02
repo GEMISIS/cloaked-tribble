@@ -4,6 +4,9 @@
 #include <GL/glew.h>
 #include "types.h"
 
+/**
+ * An object class to be extended for new objects.
+ */
 class Object
 {
 public:
@@ -24,6 +27,7 @@ public:
 		return false;
 	}
 protected:
+	float collisionRadius;
 	Vertex position;
 	Rotation rotation;
 };
