@@ -36,6 +36,9 @@
     <ClCompile Include="MainGame.cpp">
       <Filter>Source Files\Gamestates</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="types.h">
@@ -52,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="MainGame.h">
       <Filter>Header Files\Gamestates</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
