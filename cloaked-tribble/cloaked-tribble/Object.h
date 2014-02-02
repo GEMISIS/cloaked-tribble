@@ -38,7 +38,7 @@ public:
 	{
 		return rotation;
 	}
-	virtual Rotation getVelocity()
+	virtual Vertex getVelocity()
 	{
 		return velocity;
 	}
