@@ -1,12 +1,12 @@
 #ifndef _TYPES_H_
 #define _TYPES_H_
 
-typedef struct Vertex
+struct Vertex
 {
 	float x, y, z;
 };
 
-typedef struct Rotation
+struct Rotation
 {
 	float angle;
 	Vertex axis;

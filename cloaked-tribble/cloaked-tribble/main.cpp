@@ -1,24 +1,9 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-#include "Wall.h"
+#include "MainGame.h"
 
-Wall wall;
-
-void initObjects()
-{
-	wall.Init();
-}
-
-void updateObjects()
-{
-	wall.Update();
-}
-
-void drawObjects()
-{
-	wall.Draw();
-}
+Gamestate* current_state;
 
 int main()
 {
@@ -43,12 +28,22 @@ int main()
 		return -1;
 	}
 
-	initObjects();
+	current_state = new MainGame();
+	current_state->Init();
+
+	int width, height;
 
 	while(!glfwWindowShouldClose(window))
 	{
-		updateObjects();
-		drawObjects();
+		glfwGetFramebufferSize(window, &width, &height);
+
+		glViewport(0, 0, width, height);
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		gluPerspective(60, float(width) / height, 0.1f, 100);
+		glMatrixMode(GL_MODELVIEW);
+
+		current_state->Update();
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();

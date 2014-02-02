@@ -19,6 +19,12 @@
     <Filter Include="Header Files\Objects">
       <UniqueIdentifier>{da8fe534-5ddb-42cf-933b-02fd5ed5b297}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Gamestates">
+      <UniqueIdentifier>{725544c2-1f64-48fa-a917-8d5ad030b364}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Gamestates">
+      <UniqueIdentifier>{8a4b33ae-64a3-48c3-abf6-3bea6a63ec72}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,16 +33,25 @@
     <ClCompile Include="Wall.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>Source Files\Gamestates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Object.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Wall.h">
       <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Gamestate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>Header Files\Gamestates</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
