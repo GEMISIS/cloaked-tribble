@@ -4,9 +4,13 @@
 #include "types.h"
 #include "Object.h"
 
-std::vector<Object> objectList;
-float distance; //for memory management
-bool::Update()
+
+
+bool ObjectManager::Init(){
+	distance=0;
+	return true;
+}
+bool ObjectManager::Update()
 {
 	//iterate through the objectList vector and check each collison
 

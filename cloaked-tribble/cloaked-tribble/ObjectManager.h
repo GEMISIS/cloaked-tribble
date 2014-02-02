@@ -12,25 +12,17 @@ class ObjectManager
 {
 
 public:
-	virtual bool Init()
-	{
-		return true;
-	}
-	virtual bool Destroy()
-	{
-		return false;
-	}
-	bool Update()
-	{
-		return true;
-	}
+	bool Init();
+	virtual bool Destroy();
+	bool Update();
 	std::vector<Object> getObjectList()
 	{
 		return objectList;
 	}
 protected:
+	float distance; //for memory management
 	std::vector<Object> objectList;
 
-}
+};
 
 #endif
