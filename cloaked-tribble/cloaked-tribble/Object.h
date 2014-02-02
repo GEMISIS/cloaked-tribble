@@ -26,10 +26,27 @@ public:
 	{
 		return false;
 	}
-protected:
+	virtual float getCollisionRadius()
+	{
+		return collisionRadius;
+	}
+	virtual Vertex getPosition()
+	{
+		return position;
+	}
+	virtual Rotation getRotation()
+	{
+		return rotation;
+	}
+	virtual float getVelocity()
+	{
+		return velocity;
+	}
+public:
 	float collisionRadius;
 	Vertex position;
 	Rotation rotation;
+	Rotation velocity;
 };
 
 #endif
