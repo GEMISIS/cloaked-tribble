@@ -12,17 +12,22 @@ class ObjectManager
 {
 
 public:
+	ObjectManager();
 	bool Init();
-	virtual bool Destroy();
+	virtual bool Destroy()
+	{
+		return false;
+	}
 	bool Update();
-	std::vector<Object> getObjectList()
+	void addObject(Object* object);
+	std::vector<Object*> getObjectList()
 	{
 		return objectList;
 	}
 	bool addObject(Object object);
 protected:
 	float distance; //for memory management
-	std::vector<Object> objectList;
+	std::vector<Object*> objectList;
 
 };
 

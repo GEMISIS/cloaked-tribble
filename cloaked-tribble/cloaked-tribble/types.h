@@ -8,8 +8,8 @@ struct Vertex
 
 struct Rotation
 {
-	float angle;
-	Vertex axis;
+	// y, x, z;
+	float yaw, pitch, roll;
 };
 
 #endif

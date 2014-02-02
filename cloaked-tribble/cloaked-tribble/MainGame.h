@@ -4,7 +4,7 @@
 using namespace std;
 
 #include "Gamestate.h"
-#include "Object.h"
+#include "ObjectManager.h"
 
 class MainGame : public Gamestate
 {
@@ -18,7 +18,6 @@ protected:
 	bool updateLogic();
 	bool updateGraphics();
 private:
-	float rotation;
-	vector<Object> objects;
+	ObjectManager* objectManager;
 };
 

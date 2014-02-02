@@ -10,6 +10,8 @@ public:
 	bool Update();
 	bool Draw();
 	bool Destroy();
+private:
+	unsigned int verticesHandle;
 };
 
 #endif
