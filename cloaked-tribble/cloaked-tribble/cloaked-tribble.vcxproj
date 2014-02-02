@@ -69,6 +69,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Wall.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="types.h" />
+    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

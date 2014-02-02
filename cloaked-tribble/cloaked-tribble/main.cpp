@@ -1,6 +1,25 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include "Wall.h"
+
+Wall wall;
+
+void initObjects()
+{
+	wall.Init();
+}
+
+void updateObjects()
+{
+	wall.Update();
+}
+
+void drawObjects()
+{
+	wall.Draw();
+}
+
 int main()
 {
 	GLFWwindow* window;
@@ -24,10 +43,14 @@ int main()
 		return -1;
 	}
 
+	initObjects();
+
 	while(!glfwWindowShouldClose(window))
 	{
-		glfwSwapBuffers(window);
+		updateObjects();
+		drawObjects();
 
+		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
 
