@@ -26,8 +26,12 @@ bool ObjectManager::Update()
 				std::pow(a.position.z+b.position.z,2));
 			if(distance<=(a.collisionRadius+b.collisionRadius)){
 				//we have a collision, set both objects' velocity to 0
-				//a.velocity.angle=0;
-				//b.velocity.angle=0;
+				a.velocity.x=0;
+				a.velocity.y=0;
+				a.velocity.z=0;
+				b.velocity.x=0;
+				b.velocity.y=0;
+				b.velocity.z=0;
 				
 			}
 		}
@@ -37,16 +41,9 @@ bool ObjectManager::Update()
 	for(std::vector<Object*>::iterator it=objectList.begin();it!=objectList.end();++it){
 
 		Object* a = *it;
-		/**
-		//velocity must be broken into x,y,z components
-		a->position.x+=(a->velocity.axis.x * std::sin(a->velocity.angle/2));
-		a->position.y+=(a->velocity.axis.y * std::sin(a->velocity.angle/2));
-		a->position.z+=(a->velocity.axis.z * std::sin(a->velocity.angle/2));
-		//update the object's quat
-		a->rotation.axis.x=(a->position.x/std::sin(a->rotation.angle/2));
-		a->rotation.axis.y=(a->position.y/std::sin(a->rotation.angle/2));
-		a->rotation.axis.z=(a->position.z/std::sin(a->rotation.angle/2));
-		*/
+		a->position.x=(a->velocity.x)+(a->position.x);
+		a->position.y=(a->velocity.y)+(a->position.y);
+		a->position.z=(a->velocity.z)+(a->position.z);
 		a->Draw();
 	}
 

@@ -46,7 +46,7 @@ public:
 	float collisionRadius;
 	Vertex position;
 	Rotation rotation;
-	Rotation velocity;
+	Vertex velocity;
 };
 
 #endif
