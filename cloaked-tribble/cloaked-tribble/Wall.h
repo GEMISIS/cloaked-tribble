@@ -6,7 +6,10 @@
 class Wall : public Object
 {
 public:
+	bool Init();
+	bool Update();
 	bool Draw();
+	bool Destroy();
 };
 
 #endif

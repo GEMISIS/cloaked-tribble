@@ -19,8 +19,13 @@ public:
 	{
 		return false;
 	}
+	virtual bool Destroy()
+	{
+		return false;
+	}
 protected:
 	Vertex position;
+	Rotation rotation;
 };
 
 #endif

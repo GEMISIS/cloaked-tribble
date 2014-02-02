@@ -6,4 +6,10 @@ typedef struct Vertex
 	float x, y, z;
 };
 
+typedef struct Rotation
+{
+	float angle;
+	Vertex axis;
+};
+
 #endif
