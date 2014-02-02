@@ -24,6 +24,7 @@ public:
 	{
 		return objectList;
 	}
+	Object* getObjectById(char name[]);
 protected:
 	float distance; //for memory management
 	std::vector<Object*> objectList;

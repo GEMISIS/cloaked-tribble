@@ -3,12 +3,15 @@
 #include <GL/GLU.h>
 
 	Wall wall;
+	Wall wall2;
 MainGame::MainGame() : Gamestate()
 {
 	this->objectManager = new ObjectManager();
 
 	wall.Init();
+	wall2.Init();
 	this->objectManager->addObject(&wall);
+	this->objectManager->addObject(&wall2);
 }
 
 void MainGame::initializeLogic()
@@ -18,6 +21,13 @@ void MainGame::initializeLogic()
 	wall.position.x = -1.5f;
 	wall.position.y = 0.0f;
 	wall.position.z = -6.0f;
+	wall.collisionRadius=7;
+	wall2.rotation.yaw = 0.0f;
+	wall2.rotation.pitch = 0.0f;
+	wall2.position.x = 1.5f;
+	wall2.position.y = 0.0f;
+	wall2.position.z = -6.0f;
+	wall2.collisionRadius=7;
 	this->objectManager->Init();
 }
 
@@ -43,6 +53,7 @@ bool MainGame::updateLogic()
 	{
 		wall.rotation.pitch = 0.0f;
 	}
+	wall.velocity.x=0.001f;
 	return true;
 }
 

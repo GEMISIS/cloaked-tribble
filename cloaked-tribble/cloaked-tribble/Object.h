@@ -47,6 +47,7 @@ public:
 	Vertex position;
 	Rotation rotation;
 	Vertex velocity;
+	char id[256];
 };
 
 #endif
