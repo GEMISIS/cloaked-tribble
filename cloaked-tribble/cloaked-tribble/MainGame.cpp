@@ -18,16 +18,16 @@ void MainGame::initializeLogic()
 {
 	wall.rotation.yaw = 0.0f;
 	wall.rotation.pitch = 0.0f;
-	wall.position.x = -1.5f;
+	wall.position.x = -4.5f;
 	wall.position.y = 0.0f;
 	wall.position.z = -6.0f;
-	wall.collisionRadius=7;
+	wall.collisionRadius=1;
 	wall2.rotation.yaw = 0.0f;
 	wall2.rotation.pitch = 0.0f;
 	wall2.position.x = 1.5f;
 	wall2.position.y = 0.0f;
-	wall2.position.z = -6.0f;
-	wall2.collisionRadius=7;
+	wall2.position.z = -4.0f;
+	wall2.collisionRadius=1;
 	this->objectManager->Init();
 }
 
@@ -37,22 +37,6 @@ void MainGame::initializeGraphics()
 
 bool MainGame::updateLogic()
 {
-	if(wall.rotation.yaw < 360.0f)
-	{
-		wall.rotation.yaw += 0.1f;
-	}
-	else
-	{
-		wall.rotation.yaw = 0.0f;
-	}
-	if(wall.rotation.pitch < 360.0f)
-	{
-		wall.rotation.pitch += 0.1f;
-	}
-	else
-	{
-		wall.rotation.pitch = 0.0f;
-	}
 	wall.velocity.x=0.001f;
 	return true;
 }

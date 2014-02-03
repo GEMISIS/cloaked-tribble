@@ -26,12 +26,14 @@ bool ObjectManager::Update()
 			distance = std::sqrt(std::pow(a->position.x-b->position.x,2)+
 				std::pow(a->position.y-b->position.y,2)+
 				std::pow(a->position.z-b->position.z,2));
+#ifdef _DEBUG
 			std::cout<<"| ";
 			std::cout<<distance;
 			std::cout<<" ";
 			std::cout<<(a->collisionRadius+b->collisionRadius);
 			std::cout<<" |";
-			if(distance<=(a->collisionRadius+b->collisionRadius)){
+#endif
+			if(distance<(a->collisionRadius+b->collisionRadius)){
 				//we have a collision, set both objects' velocity to 0
 				a->velocity.x=0;
 				a->velocity.y=0;
