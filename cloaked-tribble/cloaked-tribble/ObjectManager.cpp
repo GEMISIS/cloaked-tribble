@@ -23,9 +23,9 @@ bool ObjectManager::Update()
 		for(std::vector<Object*>::iterator ti=(it + 1);ti!=objectList.end();++ti){
 			Object* a = *it;
 			Object* b = *ti;
-			distance = std::sqrt(std::pow(a->position.x+b->position.x,2)+
-				std::pow(a->position.y+b->position.y,2)+
-				std::pow(a->position.z+b->position.z,2));
+			distance = std::sqrt(std::pow(a->position.x-b->position.x,2)+
+				std::pow(a->position.y-b->position.y,2)+
+				std::pow(a->position.z-b->position.z,2));
 			std::cout<<"| ";
 			std::cout<<distance;
 			std::cout<<" ";
