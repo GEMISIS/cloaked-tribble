@@ -26,7 +26,7 @@ void MainGame::initializeLogic()
 	wall2.rotation.pitch = 0.0f;
 	wall2.position.x = 1.5f;
 	wall2.position.y = 0.0f;
-	wall2.position.z = -4.0f;
+	wall2.position.z = -6.0f;
 	wall2.collisionRadius=1;
 	this->objectManager->Init();
 }
