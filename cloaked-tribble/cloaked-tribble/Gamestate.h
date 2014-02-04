@@ -3,6 +3,8 @@
 // If not, define it.
 #define _GAME_STATE_H_
 
+#include <GLFW/glfw3.h>
+
 /**
   * The base game state class.  Game states should extend this class
   * to help transition between menus, gameplay, etc.
@@ -14,11 +16,18 @@ public:
 	  * A boolean indicating whether the current state is paused or not. 
 	  */
 	bool paused;
+
+	/**
+	 * The window that is associated with this game state.
+	 */
+	GLFWwindow* window;
+
 	/**
 	  * The default constructor.
 	  */
-	Gamestate()
+	Gamestate(GLFWwindow* window)
 	{
+		this->window = window;
 	};
 	/**
 	  * The initialize method.  Calls the other initialize methods for logic, graphics

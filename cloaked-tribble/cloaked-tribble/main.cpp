@@ -28,7 +28,7 @@ int main()
 		return -1;
 	}
 
-	current_state = new MainGame();
+	current_state = new MainGame(window);
 	current_state->Init();
 
 	int width, height;

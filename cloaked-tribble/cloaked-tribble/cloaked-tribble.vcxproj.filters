@@ -39,6 +39,9 @@
     <ClCompile Include="ObjectManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="types.h">
@@ -58,6 +61,9 @@
     </ClInclude>
     <ClInclude Include="ObjectManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 #include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include <vector>
 
 using namespace std;
@@ -6,10 +7,13 @@ using namespace std;
 #include "Gamestate.h"
 #include "ObjectManager.h"
 
+#include "Wall.h"
+#include "camera.h"
+
 class MainGame : public Gamestate
 {
 public:
-	MainGame();
+	MainGame(GLFWwindow* window);
 	void AddWall();
 	~MainGame();
 protected:
@@ -18,6 +22,7 @@ protected:
 	bool updateLogic();
 	bool updateGraphics();
 private:
+	Camera camera;
 	ObjectManager* objectManager;
 };
 

@@ -1,10 +1,10 @@
 #include "MainGame.h"
-#include "Wall.h"
 #include <GL/GLU.h>
 
-	Wall wall;
-	Wall wall2;
-MainGame::MainGame() : Gamestate()
+Wall wall;
+Wall wall2;
+
+MainGame::MainGame(GLFWwindow* window) : Gamestate(window)
 {
 	this->objectManager = new ObjectManager();
 
@@ -12,6 +12,8 @@ MainGame::MainGame() : Gamestate()
 	wall2.Init();
 	this->objectManager->addObject(&wall);
 	this->objectManager->addObject(&wall2);
+
+	camera.Init(this->window);
 }
 
 void MainGame::initializeLogic()
@@ -37,6 +39,7 @@ void MainGame::initializeGraphics()
 
 bool MainGame::updateLogic()
 {
+	camera.Update();
 	wall.velocity.x=0.001f;
 	return true;
 }
@@ -45,6 +48,8 @@ bool MainGame::updateGraphics()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
+
+	camera.Draw();
 
 	this->objectManager->Update();
 
