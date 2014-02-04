@@ -25,24 +25,6 @@
     <Filter Include="Source Files\Gamestates">
       <UniqueIdentifier>{8a4b33ae-64a3-48c3-abf6-3bea6a63ec72}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\FileTypes">
-      <UniqueIdentifier>{0bf11e0f-edb8-4a2c-a9a3-cf2e05d39486}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\FileTypes">
-      <UniqueIdentifier>{299e7fb0-649e-4231-a269-de406b6b6680}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\BaseTypes">
-      <UniqueIdentifier>{d271a02e-cd65-4927-be37-eef1e5e8ac01}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Managers">
-      <UniqueIdentifier>{c704ca45-f1fb-4d3b-9682-b2a7ecd25a9c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\BaseTypes">
-      <UniqueIdentifier>{0ffc70f6-ad80-424e-8d4b-ec8c576d7124}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Managers">
-      <UniqueIdentifier>{de823887-5ed3-447b-bf77-5a1163d81ee4}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,17 +36,11 @@
     <ClCompile Include="MainGame.cpp">
       <Filter>Source Files\Gamestates</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="camera.cpp">
       <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="File.cpp">
-      <Filter>Source Files\BaseTypes</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectManager.cpp">
-      <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="FileManager.cpp">
-      <Filter>Source Files\Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,29 +50,20 @@
     <ClInclude Include="Wall.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Gamestate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="MainGame.h">
       <Filter>Header Files\Gamestates</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="camera.h">
       <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="File.h">
-      <Filter>Header Files\BaseTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Header Files\BaseTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="Gamestate.h">
-      <Filter>Header Files\BaseTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="FileManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="VertexShader.h">
-      <Filter>Header Files\FileTypes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
