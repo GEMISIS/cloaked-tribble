@@ -41,10 +41,20 @@ static const GLfloat wallVertices[] = {
 
 bool Wall::Init()
 {
+	// Create the vertex array handle.
+	glGenVertexArrays(1, &this->verticesArrayHandle);
+	glBindVertexArray(this->verticesArrayHandle);
+
 	// Create the vertices buffer.
-	glGenBuffers(1, &this->verticesHandle);
-	glBindBuffer(GL_ARRAY_BUFFER, this->verticesHandle);
+	glGenBuffers(1, &this->verticesBufferHandle);
+	glBindBuffer(GL_ARRAY_BUFFER, this->verticesBufferHandle);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(wallVertices), wallVertices, GL_STATIC_DRAW);
+
+	glEnableVertexAttribArray(0);
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	// Setup the initial position and rotation.
@@ -66,18 +76,13 @@ bool Wall::Draw()
 {
 	glPushMatrix();
 	{
-		// Enable the vertices and draw them.
-		glEnableClientState(GL_VERTEX_ARRAY);
-		glBindBuffer(GL_ARRAY_BUFFER, this->verticesHandle);
-		glVertexPointer(3, GL_FLOAT, 0, 0);
+		glBindVertexArray(this->verticesArrayHandle);
 
 		glTranslatef(this->position.x, this->position.y, this->position.z);
 		glRotatef(this->rotation.yaw, 0.0f, 1.0f, 0.0f);
 		glRotatef(this->rotation.roll, 0.0f, 0.0f, 1.0f);
 		glRotatef(this->rotation.pitch, 1.0f, 0.0f, 0.0f);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
-
-		glDisableClientState(GL_VERTEX_ARRAY);
 	}
 	glPopMatrix();
 	return true;

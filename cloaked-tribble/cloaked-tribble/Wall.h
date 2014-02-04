@@ -11,7 +11,8 @@ public:
 	bool Draw();
 	bool Destroy();
 private:
-	unsigned int verticesHandle;
+	unsigned int verticesBufferHandle;
+	unsigned int verticesArrayHandle;
 };
 
 #endif

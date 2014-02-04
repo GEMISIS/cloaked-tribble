@@ -40,6 +40,7 @@ void MainGame::initializeGraphics()
 bool MainGame::updateLogic()
 {
 	camera.Update();
+	//wall.rotation.yaw += 0.1f;
 	wall.velocity.x=0.001f;
 	return true;
 }
@@ -52,20 +53,6 @@ bool MainGame::updateGraphics()
 	camera.Draw();
 
 	this->objectManager->Update();
-
-	glPushMatrix();
-	{
-		glTranslatef(1.5f, 0.0f, -6.0f);
-		glBegin(GL_QUADS);
-		{
-			glVertex3f(-1.0f, 1.0f, 0.0f);
-			glVertex3f(1.0f, 1.0f, 0.0f);
-			glVertex3f(1.0f, -1.0f, 0.0f);
-			glVertex3f(-1.0f, -1.0f, 0.0f);
-		}
-		glEnd();
-	}
-	glPopMatrix();
 
 	return true;
 }
