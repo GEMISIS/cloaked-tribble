@@ -55,7 +55,6 @@ bool Wall::Init()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
 	glBindVertexArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	// Setup the initial position and rotation.
 	this->position.x = 0.0f;
