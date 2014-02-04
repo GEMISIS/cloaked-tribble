@@ -13,6 +13,7 @@ int main()
 		return -1;
 	}
 
+	glfwWindowHint(GLFW_SAMPLES, 4);
 	window = glfwCreateWindow(640, 480, "cloaked-tribble", NULL, NULL);
 	if(!window)
 	{
