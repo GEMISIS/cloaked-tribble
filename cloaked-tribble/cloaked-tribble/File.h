@@ -12,7 +12,6 @@ public:
 	File(char* path, char* ID);
 	bool loadFile(char* path, char* ID);
 	
-public:
 	char id [256];
 	std::fstream* fios;
 };
