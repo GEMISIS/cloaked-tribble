@@ -71,6 +71,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActionEvent.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="File.cpp" />
     <ClCompile Include="FileManager.cpp" />
@@ -79,8 +80,10 @@
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Pond.cpp" />
     <ClCompile Include="Wall.cpp" />
+    <ClCompile Include="Wave.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionEvent.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="File.h" />
     <ClInclude Include="FileManager.h" />
@@ -92,6 +95,7 @@
     <ClInclude Include="types.h" />
     <ClInclude Include="VertexShader.h" />
     <ClInclude Include="Wall.h" />
+    <ClInclude Include="Wave.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

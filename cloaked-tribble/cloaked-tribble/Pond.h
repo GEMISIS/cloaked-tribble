@@ -16,7 +16,7 @@ public:
 	Pond();
 	bool Init();
 	bool Destroy();
-	bool catchEvent(ActionEvent e);
+	bool catchEvent(ActionEvent* e);
 	bool update();
 };
 

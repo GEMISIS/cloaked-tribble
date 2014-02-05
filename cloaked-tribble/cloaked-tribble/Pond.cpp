@@ -1,9 +1,12 @@
 #include "Pond.h"
+#include "types.h"
+#include "ActionEvent.h"
+#include "Wave.h"
 
 Pond::Pond()
 {
 	//initialize the pond,
-	this.Init();
+	Init();
 }
 
 bool Pond::Init()
@@ -21,12 +24,12 @@ bool Pond::Destroy()
 
 bool Pond::catchEvent(ActionEvent* e)
 {
-	Vertex* vector = *(e->getObject()->velocity);
+	Vertex* vector = &e->getObject()->velocity;
 	//movements are handled here.
 	//stepping does 2 things:
 	//1. ring ripple, an inlarging ring for detection
 	//2. Spreading tail
 	//for now we'll only implement the ring for POC
-	Wave* influence = new Wave(*(e->getObject()->position),vector);
+	Wave* influence = new Wave(&(e->getObject()->position),vector);
 	return true;
 }
