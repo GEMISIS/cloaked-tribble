@@ -33,10 +33,20 @@ bool Camera::Update()
 		this->position.x += sin(M_PI * this->rotation.yaw / 180.0f) * 0.01f;
 		this->position.z -= cos(M_PI * this->rotation.yaw / 180.0f) * 0.01f;
 	}
+	if(glfwGetKey(this->window, GLFW_KEY_A) == GLFW_PRESS)
+	{
+		this->position.x -= sin(M_PI * (this->rotation.yaw + 90.0f) / 180.0f) * 0.01f;
+		this->position.z += cos(M_PI * (this->rotation.yaw + 90.0f) / 180.0f) * 0.01f;
+	}
 	if(glfwGetKey(this->window, GLFW_KEY_S) == GLFW_PRESS)
 	{
 		this->position.x -= sin(M_PI * this->rotation.yaw / 180.0f) * 0.01f;
 		this->position.z += cos(M_PI * this->rotation.yaw / 180.0f) * 0.01f;
+	}
+	if(glfwGetKey(this->window, GLFW_KEY_D) == GLFW_PRESS)
+	{
+		this->position.x += sin(M_PI * (this->rotation.yaw + 90.0f) / 180.0f) * 0.01f;
+		this->position.z -= cos(M_PI * (this->rotation.yaw + 90.0f) / 180.0f) * 0.01f;
 	}
 
 	if(glfwGetKey(this->window, GLFW_KEY_LEFT))

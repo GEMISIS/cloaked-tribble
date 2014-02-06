@@ -38,6 +38,12 @@ int main()
 	{
 		glfwGetFramebufferSize(window, &width, &height);
 
+		if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		{
+			glfwDestroyWindow(window);
+			break;
+		}
+
 		glViewport(0, 0, width, height);
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
