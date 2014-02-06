@@ -11,6 +11,7 @@
 ObjectManager::ObjectManager()
 {
 	Init();
+	pool = new Pond(this);
 }
 
 bool ObjectManager::Init(){

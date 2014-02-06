@@ -30,7 +30,7 @@ public:
 protected:
 	float distance; //for memory management
 	std::vector<Object*> objectList;
-	Pond pool(this);
+	Pond* pool;
 	Camera viewer;
 };
 
