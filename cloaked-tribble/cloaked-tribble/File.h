@@ -10,7 +10,7 @@ class File
 public:
 	File();
 	File(char* path, char* ID);
-	bool loadFile(char* path, char* ID);
+	virtual bool loadFile(char* path, char* ID);
 	
 	char id [256];
 	std::fstream* fios;
