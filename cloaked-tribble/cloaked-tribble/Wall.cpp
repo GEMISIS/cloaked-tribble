@@ -65,6 +65,7 @@ bool Wall::Init()
 	this->rotation.pitch = 0.0f;
 	this->rotation.roll = 0.0f;
 	this->type=0.1; //WALLS ARE 0.1
+	this->awareness=0;
 	return true;
 }
 bool Wall::Update()

@@ -53,6 +53,7 @@ public:
 	Vertex velocity;
 	int type;
 	char id[256];
+	float awareness;
 };
 
 #endif
