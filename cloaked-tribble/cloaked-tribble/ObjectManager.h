@@ -5,7 +5,9 @@
 #include <vector>
 #include "Object.h"
 #include "Camera.h"
-#include "Pond.h"
+
+class Pond;
+
 /*
 * Class for managing all objects as produced for this game
 */
