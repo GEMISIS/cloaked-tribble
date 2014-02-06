@@ -2,17 +2,17 @@
 #include "types.h"
 #include "ActionEvent.h"
 #include "Wave.h"
-
-Pond::Pond()
+#include "ObjectManager.h"
+Pond::Pond(ObjectManager* om)
 {
 	//initialize the pond,
-	Init();
+	Init(om);
 }
 
-bool Pond::Init()
+bool Pond::Init(ObjectManager* om)
 {
 	//initialize or reinitialize the pond
-
+	manager = om;
 	return true;
 
 }
@@ -31,5 +31,6 @@ bool Pond::catchEvent(ActionEvent* e)
 	//2. Spreading tail
 	//for now we'll only implement the ring for POC
 	Wave* influence = new Wave(&(e->getObject()->position),vector);
+	manager->addObject(influence);
 	return true;
 }

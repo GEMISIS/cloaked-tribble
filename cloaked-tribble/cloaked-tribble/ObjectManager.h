@@ -4,6 +4,8 @@
 #include "types.h"
 #include <vector>
 #include "Object.h"
+#include "Camera.h"
+#include "Pond.h"
 /*
 * Class for managing all objects as produced for this game
 */
@@ -23,12 +25,13 @@ public:
 	std::vector<Object*> getObjectList()
 	{
 		return objectList;
-	}
+	};
 	Object* getObjectById(char name[]);
 protected:
 	float distance; //for memory management
 	std::vector<Object*> objectList;
-
+	Pond pool(this);
+	Camera viewer;
 };
 
 #endif

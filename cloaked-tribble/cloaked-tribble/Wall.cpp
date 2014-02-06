@@ -64,11 +64,12 @@ bool Wall::Init()
 	this->rotation.yaw = 0.0f;
 	this->rotation.pitch = 0.0f;
 	this->rotation.roll = 0.0f;
-
+	this->type=0.1; //WALLS ARE 0.1
 	return true;
 }
 bool Wall::Update()
 {
+	Draw();
 	return true;
 }
 bool Wall::Draw()

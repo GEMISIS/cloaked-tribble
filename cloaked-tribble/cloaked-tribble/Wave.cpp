@@ -6,6 +6,7 @@ Wave::Wave()
 	velocity=0;
 	collisionRadius=1;
 	magnitude = 10;
+	type=100;
 }
 Wave::Wave(Vertex* pos, Vertex* vel)
 {
@@ -13,13 +14,16 @@ Wave::Wave(Vertex* pos, Vertex* vel)
 	velocity = vel;
 	collisionRadius=1;
 	magnitude = 10;
+	type=100;
 }
-bool Wave::Draw()
+bool Wave::Update()
 {
 	/**
 	* NOTICE: THIS METHOD IS THE WAVE UPDATE METHOD WHERE PATHING IS INCREASED
 	**/
 	//move for current magnitude
 	collisionRadius=(collisionRadius+magnitude--)/collisionRadius; //may come back to this wave
+	if(magnitude==0)
+		delete this;
 	return true;
 }

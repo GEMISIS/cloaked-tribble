@@ -5,9 +5,12 @@
 #include "Object.h"
 #include <cstring>
 #include <iostream>
+#include "Pond.h"
+#include "Camera.h"
 
 ObjectManager::ObjectManager()
 {
+	Init();
 }
 
 bool ObjectManager::Init(){
@@ -26,6 +29,7 @@ bool ObjectManager::Update()
 			distance = std::sqrt(std::pow(a->position.x-b->position.x,2)+
 				std::pow(a->position.y-b->position.y,2)+
 				std::pow(a->position.z-b->position.z,2));
+			/*
 #ifdef _DEBUG
 			std::cout<<"| ";
 			std::cout<<distance;
@@ -33,16 +37,21 @@ bool ObjectManager::Update()
 			std::cout<<(a->collisionRadius+b->collisionRadius);
 			std::cout<<" |";
 #endif
+			*/
 			if(distance<(a->collisionRadius+b->collisionRadius)){
 				//we have a collision, set both objects' velocity to 0
-				a->velocity.x=0;
-				a->velocity.y=0;
-				a->velocity.z=0;
-				b->velocity.x=0;
-				b->velocity.y=0;
-				b->velocity.z=0;
-				
+				if(a->indentifier()!=100){
+					a->velocity.x=0;
+					a->velocity.y=0;
+					a->velocity.z=0;
+				}
+				if(b->indentifier()!=100){
+					b->velocity.x=0;
+					b->velocity.y=0;
+					b->velocity.z=0;
+				}
 			}
+			
 		}
 	}
 	//Now we have the correct velocities for each object and can move them.
@@ -53,7 +62,7 @@ bool ObjectManager::Update()
 		a->position.x=(a->velocity.x)+(a->position.x);
 		a->position.y=(a->velocity.y)+(a->position.y);
 		a->position.z=(a->velocity.z)+(a->position.z);
-		a->Draw();
+		a->Update();
 	}
 
 	return true;

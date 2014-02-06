@@ -9,7 +9,7 @@ class Wave : public Object
 public:
 	Wave();
 	Wave(Vertex* position,Vertex* velocity);
-	bool Draw();
+	bool Update();
 	float magnitude;
 protected:
 	Vertex* position;

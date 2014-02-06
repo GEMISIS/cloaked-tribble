@@ -1,4 +1,5 @@
 #include "ActionEvent.h"
+#include "Object.h"
 
 ActionEvent::ActionEvent()
 {
@@ -7,4 +8,8 @@ ActionEvent::ActionEvent()
 ActionEvent::ActionEvent(Object* origin)
 {
 	source = origin;
+}
+Object* ActionEvent::getObject()
+{
+	return source;
 }

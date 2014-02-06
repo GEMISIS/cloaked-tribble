@@ -10,14 +10,17 @@
 */
 #include "Wave.h"
 #include "ActionEvent.h"
+#include "ObjectManager.h"
 class Pond
 {
 public:
-	Pond();
-	bool Init();
+	Pond(ObjectManager* om);
+	bool Init(ObjectManager* om);
 	bool Destroy();
 	bool catchEvent(ActionEvent* e);
 	bool update();
+protected:
+	ObjectManager* manager;
 };
 
 

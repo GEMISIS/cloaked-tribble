@@ -42,11 +42,16 @@ public:
 	{
 		return velocity;
 	}
+	virtual float indentifier()
+	{
+		return type;
+	}
 public:
 	float collisionRadius;
 	Vertex position;
 	Rotation rotation;
 	Vertex velocity;
+	float type;
 	char id[256];
 };
 
