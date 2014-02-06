@@ -7,6 +7,7 @@
 #include "Camera.h"
 
 class Pond;
+class ActionEvent;
 
 /*
 * Class for managing all objects as produced for this game

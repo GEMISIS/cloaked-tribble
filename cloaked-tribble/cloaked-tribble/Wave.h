@@ -11,7 +11,6 @@ public:
 	Wave(Vertex* position,Vertex* velocity);
 	bool Update();
 	float magnitude;
-protected:
 	Vertex* position;
 	Vertex* velocity;
 };

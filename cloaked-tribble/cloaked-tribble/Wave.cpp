@@ -23,7 +23,5 @@ bool Wave::Update()
 	**/
 	//move for current magnitude
 	collisionRadius=(collisionRadius+magnitude--)/collisionRadius; //may come back to this wave
-	if(magnitude==0)
-		delete this;
 	return true;
 }

@@ -42,7 +42,7 @@ public:
 	{
 		return velocity;
 	}
-	virtual float indentifier()
+	virtual int indentifier()
 	{
 		return type;
 	}
@@ -51,7 +51,7 @@ public:
 	Vertex position;
 	Rotation rotation;
 	Vertex velocity;
-	float type;
+	int type;
 	char id[256];
 };
 

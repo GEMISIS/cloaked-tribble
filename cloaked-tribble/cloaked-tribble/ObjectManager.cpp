@@ -5,13 +5,15 @@
 #include "Object.h"
 #include <cstring>
 #include <iostream>
-#include "Pond.h"
+//#include "Pond.h"
 #include "Camera.h"
+#include "ActionEvent.h"
+#include "Wave.h"
 
 ObjectManager::ObjectManager()
 {
 	Init();
-	pool = new Pond(this);
+	//pool = new Pond(this);
 }
 
 bool ObjectManager::Init(){
@@ -24,45 +26,61 @@ bool ObjectManager::Update()
 
 	for(std::vector<Object*>::iterator it=objectList.begin();it!=objectList.end();++it){
 		//for each object after this object
-		for(std::vector<Object*>::iterator ti=(it + 1);ti!=objectList.end();++ti){
-			Object* a = *it;
-			Object* b = *ti;
-			distance = std::sqrt(std::pow(a->position.x-b->position.x,2)+
-				std::pow(a->position.y-b->position.y,2)+
-				std::pow(a->position.z-b->position.z,2));
-			/*
-#ifdef _DEBUG
-			std::cout<<"| ";
-			std::cout<<distance;
-			std::cout<<" ";
-			std::cout<<(a->collisionRadius+b->collisionRadius);
-			std::cout<<" |";
-#endif
-			*/
-			if(distance<(a->collisionRadius+b->collisionRadius)){
-				//we have a collision, set both objects' velocity to 0
-				if(a->indentifier()!=100){
-					a->velocity.x=0;
-					a->velocity.y=0;
-					a->velocity.z=0;
+		Object* a = *it;
+		if((a->type==100&&static_cast<Wave*>(a)->magnitude>0)||a->type!=100){
+
+			for(std::vector<Object*>::iterator ti=(it + 1);ti!=objectList.end();++ti){
+
+				Object* b = *ti;
+				if((a->type==100&&static_cast<Wave*>(a)->magnitude>0)||b->type!=100){
+					distance = std::sqrt(std::pow(a->position.x-b->position.x,2)+
+						std::pow(a->position.y-b->position.y,2)+
+						std::pow(a->position.z-b->position.z,2));
+					/*
+					#ifdef _DEBUG
+					std::cout<<"| ";
+					std::cout<<distance;
+					std::cout<<" ";
+					std::cout<<(a->collisionRadius+b->collisionRadius);
+					std::cout<<" |";
+					#endif
+					*/
+					if(distance<(a->collisionRadius+b->collisionRadius)){
+						//we have a collision, set both objects' velocity to 0
+						if(a->indentifier()!=100){
+							a->velocity.x=0;
+							a->velocity.y=0;
+							a->velocity.z=0;
+						}
+						if(b->indentifier()!=100){
+							b->velocity.x=0;
+							b->velocity.y=0;
+							b->velocity.z=0;
+						}
+					} else {
+						if(a->type!=100){
+							//this->addObject(new Wave(&a->position,&a->velocity));
+						}
+						if(b->type!=100){
+							//this->addObject(new Wave(&b->position,&b->velocity));
+						}
+					}
+				} else {
+					objectList.erase(ti);
 				}
-				if(b->indentifier()!=100){
-					b->velocity.x=0;
-					b->velocity.y=0;
-					b->velocity.z=0;
-				}
-			}
-			
+			} 
+		} else {
+			objectList.erase(it);
 		}
 	}
 	//Now we have the correct velocities for each object and can move them.
 
 	for(std::vector<Object*>::iterator it=objectList.begin();it!=objectList.end();++it){
-
 		Object* a = *it;
 		a->position.x=(a->velocity.x)+(a->position.x);
 		a->position.y=(a->velocity.y)+(a->position.y);
 		a->position.z=(a->velocity.z)+(a->position.z);
+
 		a->Update();
 	}
 
