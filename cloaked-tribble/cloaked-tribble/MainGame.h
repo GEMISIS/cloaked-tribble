@@ -23,6 +23,6 @@ protected:
 	bool updateGraphics();
 private:
 	Camera camera;
-	ObjectManager* objectManager;
+	ObjectManager objectManager;
 };
 

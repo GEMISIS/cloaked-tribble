@@ -6,31 +6,34 @@ Wall wall2;
 
 MainGame::MainGame(GLFWwindow* window) : Gamestate(window)
 {
-	this->objectManager = new ObjectManager();
+	objectManager.Init();
 
 	wall.Init();
 	wall2.Init();
-	this->objectManager->addObject(&wall);
-	this->objectManager->addObject(&wall2);
-
 	camera.Init(this->window);
+	objectManager.addObject(&camera);
+	objectManager.addObject(&wall);
+	objectManager.addObject(&wall2);
+
+	
 }
 
 void MainGame::initializeLogic()
 {
-	wall.rotation.yaw = 0.0f;
-	wall.rotation.pitch = 0.0f;
-	wall.position.x = -4.5f;
-	wall.position.y = 0.0f;
-	wall.position.z = -6.0f;
+	wall.rotation.yaw = 0.0;
+	wall.rotation.pitch = 0.0;
+	wall.position.x = -2.5;
+	wall.position.y = 0.0;
+	wall.position.z = -6.0;
 	wall.collisionRadius=1;
-	wall2.rotation.yaw = 0.0f;
-	wall2.rotation.pitch = 0.0f;
-	wall2.position.x = 1.5f;
-	wall2.position.y = 0.0f;
-	wall2.position.z = -6.0f;
+	wall2.rotation.yaw = 0.0;
+	wall2.rotation.pitch = 0.0;
+	wall2.position.x = 1.5;
+	wall2.position.y = 0.0;
+	wall2.position.z = -6.0;
 	wall2.collisionRadius=1;
-	this->objectManager->Init();
+	//objectManager.Init();
+	
 }
 
 void MainGame::initializeGraphics()
@@ -39,8 +42,8 @@ void MainGame::initializeGraphics()
 
 bool MainGame::updateLogic()
 {
-	camera.Update();
-	//wall.rotation.yaw += 0.1f;
+	//camera.Update();
+	wall.rotation.yaw += 0.1f;
 	wall.velocity.x=0.001f;
 	return true;
 }
@@ -50,9 +53,9 @@ bool MainGame::updateGraphics()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 
-	camera.Draw();
+	//camera.Draw();
 
-	this->objectManager->Update();
+	objectManager.Update();
 
 	return true;
 }

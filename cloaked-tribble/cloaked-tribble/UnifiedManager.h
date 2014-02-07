@@ -15,12 +15,6 @@ public:
 	float sqrt(float n);
 protected:
 	float distance;
-	Object* tmp1;
-	Object* tmp2;
-	Vertex* pos1;
-	Vertex* pos2;
-	Vertex* vel1;
-	Vertex* vel2;
 	std::list<Object*> objectList;
 };
 

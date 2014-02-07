@@ -16,27 +16,43 @@ UnifiedManager::UnifiedManager()
 }
 bool UnifiedManager::Init()
 {
+	distance = 0;
 	return true;
 }
 bool UnifiedManager::Update()
 {
 	for(std::list<Object*>::iterator it=objectList.begin();it!=objectList.end();++it){
-		tmp1 = *it;
-		pos1 = &tmp1->position;
-		vel1 = &tmp1->velocity;
-		for(std::list<Object*>::iterator ti=it;++ti!=objectList.end();){
-
-			tmp2 = *it;
-
-			pos2 = &tmp2->position;
-
-			vel2 = &tmp1->velocity;
-			distance = sqrt(std::pow(pos1->x-pos2->x,2)+
-				std::pow(pos1->y-pos2->y,2)+
-				std::pow(pos1->z-pos2->z,2));
+		Object* tmp1 = *it;
+		if(tmp1->type==0)
+			continue;
+		Vertex* pos1 = &tmp1->position;
+		/*std::cout<<"Begin check:"<<std::endl;
+		std::cout<<tmp1->position.x<<","<<tmp1->position.y<<","<<tmp1->position.z<<std::endl;*/
+		Vertex* vel1 = &tmp1->velocity;
+		for(std::list<Object*>::iterator ti=it;ti!=objectList.end();++ti){
+			if(it==ti)
+				continue;
+			Object* tmp2 = *it;
+			
+			Vertex* pos2 = &tmp2->position;
+			/*std::cout<<pos2->x<<","<<pos2->y<<","<<pos2->z<<std::endl;
+			std::cout<<std::pow(tmp1->position.x-tmp2->position.x,2)<<","<<std::pow(tmp1->position.y-tmp2->position.y,2)<<","<<std::pow(tmp1->position.z-tmp2->position.z,2)<<std::endl;*/
+			Vertex* vel2 = &tmp2->velocity;
+			distance = std::sqrt(std::pow(tmp1->position.x-tmp2->position.x,2)+
+				std::pow(tmp1->position.y-tmp2->position.y,2)+
+				std::pow(tmp1->position.z-tmp2->position.z,2));
+			//distance = 0.1;
+			//std::cout<<distance<<std::endl;
+			#ifdef _DEBUG
+					std::cout<<"| ";
+					std::cout<<distance;
+					std::cout<<" ";
+					std::cout<<(tmp1->collisionRadius+tmp2->collisionRadius)<<" object1: "<<tmp1->position.x<<" Object2: "<<tmp2->position.x;
+					std::cout<<" |";
+			#endif
 			if((distance<(tmp1->collisionRadius+tmp2->collisionRadius))){
-
-				if(!(tmp1->type==100||tmp2->type==100)){
+				//if(true){
+				if(tmp1->type!=100&&tmp2->type!=100){
 					//collision
 					vel1->x=0;
 					vel1->y=0;
@@ -49,22 +65,24 @@ bool UnifiedManager::Update()
 						Wave* w = static_cast<Wave*>(tmp1);
 						tmp2->awareness+=(w->magnitude);
 						if(w->magnitude<=0){
+							delete w;
 							objectList.erase(it);
 						}
 					}
 				}
 			}
 		}
+	}
 		for(std::list<Object*>::iterator it=objectList.begin();it!=objectList.end();++it){
-			tmp1 = *it;
-			if(tmp1->velocity.x>0||tmp1->velocity.y>0||tmp1->velocity.z>0)
-				addObject(new Wave(tmp1->position,tmp1->velocity));
+			Object* tmp1 = *it;
+			if(tmp1->velocity.x>0||tmp1->velocity.y>0||tmp1->velocity.z>0){
+				//addObject(new Wave(&tmp1->position,&tmp1->velocity));
+			}
 			tmp1->position.x=(tmp1->velocity.x)+(tmp1->position.x);
 			tmp1->position.y=(tmp1->velocity.y)+(tmp1->position.y);
 			tmp1->position.z=(tmp1->velocity.z)+(tmp1->position.z);
 			tmp1->Update();
 		}
-	}
 	return true;
 }
 bool UnifiedManager::addObject(Object* input)

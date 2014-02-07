@@ -13,6 +13,7 @@ Camera::Camera(GLFWwindow* window)
 
 bool Camera::Init(GLFWwindow* window)
 {
+	type=0;
 	this->window = window;
 
 	// Setup the initial position and rotation.
@@ -57,6 +58,7 @@ bool Camera::Update()
 	{
 		this->rotation.yaw += 0.1f;
 	}
+	Draw();
 	return true;
 }
 bool Camera::Draw()
