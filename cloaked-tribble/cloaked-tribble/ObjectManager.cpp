@@ -29,8 +29,11 @@ bool ObjectManager::Update()
 			continue;
 		}
 		for(std::vector<Object*>::iterator ti=(it + 1);ti!=objectList.end();++ti){
-
+			
 			Object* b = *ti;
+			if(b->type==0){
+				continue;
+			}
 			distance = std::sqrt(std::pow(a->position.x-b->position.x,2)+
 				std::pow(a->position.y-b->position.y,2)+
 				std::pow(a->position.z-b->position.z,2));
@@ -60,6 +63,10 @@ bool ObjectManager::Update()
 
 	for(std::vector<Object*>::iterator it=objectList.begin();it!=objectList.end();++it){
 		Object* a = *it;
+		if(a->type==0){
+			a->Update();
+			continue;
+		}
 		a->position.x=(a->velocity.x)+(a->position.x);
 		a->position.y=(a->velocity.y)+(a->position.y);
 		a->position.z=(a->velocity.z)+(a->position.z);

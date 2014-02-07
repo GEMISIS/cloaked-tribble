@@ -1,7 +1,7 @@
 #include "camera.h"
 
 #include <math.h>
-
+#include <iostream>
 Camera::Camera()
 {
 }
@@ -14,6 +14,7 @@ Camera::Camera(GLFWwindow* window)
 bool Camera::Init(GLFWwindow* window)
 {
 	type=0;
+	//collisionRadius=5;
 	this->window = window;
 
 	// Setup the initial position and rotation.
@@ -58,16 +59,17 @@ bool Camera::Update()
 	{
 		this->rotation.yaw += 0.1f;
 	}
+	std::cout<<"Test"<<std::endl;
 	Draw();
 	return true;
 }
 bool Camera::Draw()
 {
-	glRotatef(this->rotation.yaw, 0.0f, 1.0f, 0.0f);
-	glRotatef(this->rotation.roll, 0.0f, 0.0f, 1.0f);
-	glRotatef(this->rotation.pitch, 1.0f, 0.0f, 0.0f);
-	glTranslatef(-this->position.x, -this->position.y, -this->position.z);
-
+	glRotatef(rotation.yaw, 0.0f, 1.0f, 0.0f);
+	glRotatef(rotation.roll, 0.0f, 0.0f, 1.0f);
+	glRotatef(rotation.pitch, 1.0f, 0.0f, 0.0f);
+	glTranslatef(-position.x, -position.y, -position.z);
+	std::cout<<"Test"<<std::endl;
 	return true;
 }
 bool Camera::Destroy()

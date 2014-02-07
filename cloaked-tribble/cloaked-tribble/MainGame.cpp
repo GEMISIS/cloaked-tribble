@@ -7,7 +7,7 @@ Wall wall2;
 MainGame::MainGame(GLFWwindow* window) : Gamestate(window)
 {
 	objectManager.Init();
-
+	
 	wall.Init();
 	wall2.Init();
 	camera.Init(this->window);
@@ -53,7 +53,7 @@ bool MainGame::updateGraphics()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 
-	//camera.Draw();
+	camera.Draw();
 
 	objectManager.Update();
 
