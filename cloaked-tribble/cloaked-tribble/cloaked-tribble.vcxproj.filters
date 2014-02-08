@@ -75,8 +75,14 @@
     <ClCompile Include="Wave.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="UnifiedManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Shader.cpp">
       <Filter>Source Files\FileTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="Shaders\vertexShader.glsl">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,8 +122,14 @@
     <ClInclude Include="Wave.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="UnifiedManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>Header Files\FileTypes</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\fragShader.glsl" />
   </ItemGroup>
 </Project>

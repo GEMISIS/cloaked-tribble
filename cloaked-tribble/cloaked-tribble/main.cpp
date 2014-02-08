@@ -14,7 +14,9 @@ int main()
 	}
 
 	glfwWindowHint(GLFW_SAMPLES, 4);
-	window = glfwCreateWindow(640, 480, "cloaked-tribble", NULL, NULL);
+	const GLFWvidmode * mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+
+	window = glfwCreateWindow(mode->width, mode->height, "cloaked-tribble", glfwGetPrimaryMonitor(), NULL);
 	if(!window)
 	{
 		glfwTerminate();

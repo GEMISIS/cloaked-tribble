@@ -3,9 +3,11 @@
 
 #include <GL/glew.h>
 #include <vector>
+#include <string>
+#include <iostream>
 #include "File.h"
 
-class Shader : public File
+class Shader
 {
 public:
 	Shader();
@@ -13,12 +15,15 @@ public:
 	bool loadFile(unsigned int type, char* path, char* ID);
 
 	bool Compile();
-	std::vector<char> getErrors();
-	bool Attach();
+	const char* getErrors();
+	bool Attach(unsigned int programID);
+	bool Cleanup();
 protected:
 	unsigned int id;
+	std::string source;
 	int result;
 };
+
 
 #endif
 

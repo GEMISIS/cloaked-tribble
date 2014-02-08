@@ -79,6 +79,12 @@
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Pond.cpp" />
+    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Shaders\vertexShader.glsl">
+      <FileType>Document</FileType>
+      <DeploymentContent>true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="UnifiedManager.cpp" />
     <ClCompile Include="Wall.cpp" />
     <ClCompile Include="Wave.cpp" />
@@ -93,11 +99,17 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Pond.h" />
+    <ClInclude Include="Shader.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="UnifiedManager.h" />
-    <ClInclude Include="VertexShader.h" />
     <ClInclude Include="Wall.h" />
     <ClInclude Include="Wave.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\fragShader.glsl">
+      <DeploymentContent>true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

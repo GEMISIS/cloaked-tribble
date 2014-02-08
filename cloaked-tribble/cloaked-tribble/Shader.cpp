@@ -5,30 +5,61 @@ Shader::Shader()
 }
 Shader::Shader(unsigned int type, char* path, char* ID)
 {
+	this->loadFile(type, path, ID);
 }
 bool Shader::loadFile(unsigned int type, char* path, char* ID)
 {
-	bool result = File::loadFile(path, ID);
+	std::ifstream fios(path, std::fstream::in);
 
-	return result;
+	if(fios.is_open())
+	{
+		this->id = glCreateShader(type);
+
+		std::string code = "";
+
+		while(getline(fios, code))
+		{
+			this->source += code;
+			this->source += "\n";
+		}
+
+		fios.close();
+
+		return true;
+	}
+
+	return false;
 }
 
 bool Shader::Compile()
 {
-	return false;
+	char* codeCopy =  new char[this->source.length() + 1];
+	std::strcpy(codeCopy, this->source.c_str());
+	const char* code = codeCopy;
+	glShaderSource(this->id, 1, &code, NULL);
+	glCompileShader(this->id);
+	return true;
 }
 
-std::vector<char> Shader::getErrors()
+const char* Shader::getErrors()
 {
 	int errorLength;
+	this->result = 0;
 	glGetShaderiv(this->id, GL_COMPILE_STATUS, &this->result);
 	glGetShaderiv(this->id, GL_INFO_LOG_LENGTH, &errorLength);
-    std::vector<char> errors(errorLength);
-    glGetShaderInfoLog(this->id, errorLength, NULL, &errors[0]);
+	char* errors = new char[errorLength];
+    glGetShaderInfoLog(this->id, errorLength, NULL, errors);
 	return errors;
 }
 
-bool Shader::Attach()
+bool Shader::Attach(unsigned int programID)
 {
-	return false;
+	glAttachShader(programID, this->id);
+	return true;
+}
+
+bool Shader::Cleanup()
+{
+	glDeleteShader(this->id);
+	return true;
 }

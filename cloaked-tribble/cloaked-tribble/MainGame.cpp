@@ -1,8 +1,11 @@
 #include "MainGame.h"
+#include "Shader.h"
 #include <GL/GLU.h>
 
 Wall wall;
 Wall wall2;
+Shader vShader;
+Shader fShader;
 
 MainGame::MainGame(GLFWwindow* window) : Gamestate(window)
 {
@@ -15,7 +18,21 @@ MainGame::MainGame(GLFWwindow* window) : Gamestate(window)
 	objectManager.addObject(&wall);
 	objectManager.addObject(&wall2);
 
-	
+	vShader.loadFile(GL_VERTEX_SHADER, "Shaders/vertexShader.glsl", "vShader");
+	fShader.loadFile(GL_FRAGMENT_SHADER, "Shaders/fragShader.glsl", "fShader");
+
+	vShader.Compile();
+	fprintf(stdout, "Vertex Shader: %s", vShader.getErrors());
+	fShader.Compile();
+	fprintf(stdout, "Fragment Shader: %s", fShader.getErrors());
+
+	unsigned int programID = glCreateProgram();
+
+	vShader.Attach(programID);
+	fShader.Attach(programID);
+
+	glLinkProgram(programID);
+	glUseProgram(programID);
 }
 
 void MainGame::initializeLogic()
