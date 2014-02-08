@@ -25,26 +25,18 @@ bool ObjectManager::Update()
 	for(std::vector<Object*>::iterator it=objectList.begin();it!=objectList.end();++it){
 		//for each object after this object
 		Object* a = *it;
-		if(a->type==0){
+		/*if(a->type==0){
 			continue;
-		}
+		}*/
 		for(std::vector<Object*>::iterator ti=(it + 1);ti!=objectList.end();++ti){
 			
 			Object* b = *ti;
-			if(b->type==0){
+			/*if(b->type==0){
 				continue;
-			}
-			distance = std::sqrt(std::pow(a->position.x-b->position.x,2)+
-				std::pow(a->position.y-b->position.y,2)+
-				std::pow(a->position.z-b->position.z,2));
-
-#ifdef _DEBUG
-			std::cout<<"| type: "<<a->type<<" | ";
-			std::cout<<distance;
-			std::cout<<" ";
-			std::cout<<(a->collisionRadius+b->collisionRadius);
-			std::cout<<" |"<<std::endl;
-#endif
+			}*/
+			distance = std::sqrt(std::pow((a->position.x+a->velocity.x)-(b->position.x+b->velocity.x),2)+
+				std::pow((a->position.y+a->velocity.y)-(b->position.y+b->velocity.y),2)+
+				std::pow((a->position.z+a->velocity.z)-(b->position.z+b->velocity.z),2));
 
 			if(distance<(a->collisionRadius+b->collisionRadius)){
 				//we have a collision, set both objects' velocity to 0
@@ -63,10 +55,10 @@ bool ObjectManager::Update()
 
 	for(std::vector<Object*>::iterator it=objectList.begin();it!=objectList.end();++it){
 		Object* a = *it;
-		if(a->type==0){
+		/*if(a->type==0){
 			a->Update();
 			continue;
-		}
+		}*/
 		a->position.x=(a->velocity.x)+(a->position.x);
 		a->position.y=(a->velocity.y)+(a->position.y);
 		a->position.z=(a->velocity.z)+(a->position.z);

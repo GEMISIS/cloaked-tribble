@@ -13,8 +13,17 @@ public:
 	bool Update();
 	bool Draw();
 	bool Destroy();
+	bool mouseMove();
+	//void calculateCameraMovement();
 private:
 	GLFWwindow* window;
+	int xOld;
+	int yOld;
+	bool wkeypressed;
+	bool akeypressed;
+	bool skeypressed;
+	bool dkeypressed;
+	bool keypressed;
 };
 
 #endif
