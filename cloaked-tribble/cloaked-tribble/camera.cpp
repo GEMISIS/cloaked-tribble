@@ -126,8 +126,11 @@ bool Camera::Draw()
 }
 bool Camera::mouseMove()
 {
-	double centerx=640/2;
-	double centery=480/2;
+	int winwidth;
+	int winheight;
+	glfwGetWindowSize(this->window,&winwidth,&winheight);
+	double centerx=winwidth/2;
+	double centery=winheight/2;
 	double curx=0;
 	double cury=0;
 	glfwGetCursorPos(this->window,&curx,&cury);

@@ -1,4 +1,4 @@
-#version 330
+#version 330 core
 varying vec2 texture_coordinate;
 
 void main()

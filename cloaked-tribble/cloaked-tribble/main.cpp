@@ -36,6 +36,8 @@ int main()
 
 	int width, height;
 
+	printf("Version: %s\n\n", (char*)glGetString(GL_VERSION));
+
 	while(!glfwWindowShouldClose(window))
 	{
 		glfwGetFramebufferSize(window, &width, &height);
