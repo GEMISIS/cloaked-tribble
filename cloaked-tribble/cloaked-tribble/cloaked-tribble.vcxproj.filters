@@ -125,5 +125,8 @@
     <ClInclude Include="Shader.h">
       <Filter>Header Files\FileTypes</Filter>
     </ClInclude>
+    <ClInclude Include="FastMath.h">
+      <Filter>Header Files\BaseTypes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

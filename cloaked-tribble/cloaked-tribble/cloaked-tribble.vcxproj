@@ -87,6 +87,7 @@
   <ItemGroup>
     <ClInclude Include="ActionEvent.h" />
     <ClInclude Include="camera.h" />
+    <ClInclude Include="FastMath.h" />
     <ClInclude Include="File.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="Gamestate.h" />
