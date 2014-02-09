@@ -17,7 +17,8 @@ MainGame::MainGame(GLFWwindow* window) : Gamestate(window)
 	objectManager.addObject(&camera);
 	objectManager.addObject(&wall);
 	objectManager.addObject(&wall2);
-
+	//glfwDisable(GLFW_MOUSE_CURSOR);
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 	vShader.loadFile(GL_VERTEX_SHADER, "Shaders/vertexShader.glsl", "vShader");
 	fShader.loadFile(GL_FRAGMENT_SHADER, "Shaders/fragShader.glsl", "fShader");
 
@@ -61,6 +62,7 @@ bool MainGame::updateLogic()
 {
 	//camera.Update();
 	wall.rotation.yaw += 0.1f;
+	wall2.rotation.yaw+=0.1f;
 	wall.velocity.x=0.001f;
 	return true;
 }

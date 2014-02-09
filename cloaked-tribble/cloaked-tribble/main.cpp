@@ -38,6 +38,7 @@ int main()
 
 	printf("Version: %s\n\n", (char*)glGetString(GL_VERSION));
 
+//	glfwDisable(GLFW_MOUSE_CURSOR);
 	while(!glfwWindowShouldClose(window))
 	{
 		glfwGetFramebufferSize(window, &width, &height);
