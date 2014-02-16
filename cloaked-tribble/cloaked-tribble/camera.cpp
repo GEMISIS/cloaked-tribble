@@ -139,10 +139,10 @@ bool Camera::mouseMove()
 	double cury=0;
 	glfwGetCursorPos(this->window,&curx,&cury);
 	//rotation.pitch=((cury-centery)/5); //2 is sensitivity
-	//rotation.yaw=((curx-centerx)/5);
+	rotation.yaw=((curx-centerx)/5);
 //	if(rotation.pitch>90.0f)
 	//	rotation.pitch=90.0f;
-//	if(rotation.yaw>90.0f)
+	//if(rotation.yaw>90.0f)
 	//	rotation.yaw=90.0f;
 	return true;
 }
