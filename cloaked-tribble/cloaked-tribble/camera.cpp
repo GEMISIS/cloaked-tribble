@@ -48,20 +48,20 @@ bool Camera::Update()
 	if(glfwGetKey(this->window, GLFW_KEY_A) == GLFW_PRESS)
 	{
 		this->velocity.x = -sin(M_PI * (this->rotation.yaw + 90.0f) / 180.0f) * 0.01f;
-		this->velocity.z = -cos(M_PI * (this->rotation.yaw + 90.0f) / 180.0f) * 0.01f;
+		this->velocity.z = cos(M_PI * (this->rotation.yaw + 90.0f) / 180.0f) * 0.01f;
 		akeypressed=true;
 	}
 
 	if(glfwGetKey(this->window, GLFW_KEY_S) == GLFW_PRESS)
 	{
-		this->velocity.x = -cos(M_PI * (this->rotation.yaw + 90.0f) / 180.0f) * 0.01f;
-		this->velocity.z = sin(M_PI * (this->rotation.yaw + 90.0f) / 180.0f) * 0.01f;
+		this->velocity.x = -sin(M_PI * this->rotation.yaw / 180.0f) * 0.01f;
+		this->velocity.z = cos(M_PI * this->rotation.yaw / 180.0f) * 0.01f;
 		skeypressed=true;
 	}
 
 	if(glfwGetKey(this->window, GLFW_KEY_D) == GLFW_PRESS)
 	{
-		this->velocity.x = cos(M_PI * (this->rotation.yaw) / 180.0f) * 0.01f;
+		this->velocity.x = sin(M_PI * (this->rotation.yaw + 90.0f) / 180.0f) * 0.01f;
 		this->velocity.z = -cos(M_PI * (this->rotation.yaw + 90.0f) / 180.0f) * 0.01f;
 		dkeypressed=true;
 	}
@@ -109,6 +109,10 @@ bool Camera::Update()
 	{
 		this->rotation.yaw += 0.1f;
 	}
+	if(this->rotation.yaw > 360.0f || this->rotation.yaw < -360.0f)
+	{
+		this->rotation.yaw = 0.0f;
+	}
 	mouseMove();
 	//glutPassiveMotionFunc(mouseMove);
 	//std::cout<<"Test"<<std::endl;
@@ -134,12 +138,12 @@ bool Camera::mouseMove()
 	double curx=0;
 	double cury=0;
 	glfwGetCursorPos(this->window,&curx,&cury);
-	rotation.pitch=((cury-centery)/5); //2 is sensitivity
-	rotation.yaw=((curx-centerx)/5);
-	if(rotation.pitch>90.0f)
-		rotation.pitch=90.0f;
-	if(rotation.yaw>90.0f)
-		rotation.yaw=90.0f;
+	//rotation.pitch=((cury-centery)/5); //2 is sensitivity
+	//rotation.yaw=((curx-centerx)/5);
+//	if(rotation.pitch>90.0f)
+	//	rotation.pitch=90.0f;
+//	if(rotation.yaw>90.0f)
+	//	rotation.yaw=90.0f;
 	return true;
 }
 bool Camera::Destroy()
