@@ -2,6 +2,7 @@
 #define _OBJECT_H_
 
 #include <GL/glew.h>
+#include <vector>
 #include "types.h"
 
 /**
@@ -48,6 +49,7 @@ public:
 	}
 public:
 	float collisionRadius;
+	std::vector<Vertex> collisionVertices;
 	Vertex position;
 	Rotation rotation;
 	Vertex velocity;
