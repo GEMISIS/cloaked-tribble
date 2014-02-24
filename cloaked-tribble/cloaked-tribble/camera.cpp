@@ -121,9 +121,10 @@ bool Camera::Update()
 }
 bool Camera::Draw()
 {
+	glRotatef(rotation.pitch, 1.0f, 0.0f, 0.0f);
 	glRotatef(rotation.yaw, 0.0f, 1.0f, 0.0f);
 	glRotatef(rotation.roll, 0.0f, 0.0f, 1.0f);
-	glRotatef(rotation.pitch, 1.0f, 0.0f, 0.0f);
+	
 	glTranslatef(-position.x, -position.y, -position.z);
 	//std::cout<<"Test"<<std::endl;
 	return true;
@@ -138,12 +139,15 @@ bool Camera::mouseMove()
 	double curx=0;
 	double cury=0;
 	glfwGetCursorPos(this->window,&curx,&cury);
-	//rotation.pitch=((cury-centery)/5); //2 is sensitivity
-	rotation.yaw=((curx-centerx)/5);
-//	if(rotation.pitch>90.0f)
-	//	rotation.pitch=90.0f;
+	//double deltax = curx-centerx;
+	//double deltay = cury - centery;
+	rotation.pitch=((((int)cury)/2)%360); //2 is sensitivity
+	rotation.yaw=((((int)curx)/2)%360);
+	//if(rotation.pitch>45.0f)
+		//rotation.pitch=90.0f;
 	//if(rotation.yaw>90.0f)
 	//	rotation.yaw=90.0f;
+	//glfwSetCursorPos(this->window,centerx, centery);
 	return true;
 }
 bool Camera::Destroy()
